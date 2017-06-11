@@ -1,0 +1,28 @@
+.meta.body-text-color
+  .title {{note.content.title}}
+  .created Created {{note.created_at}}
+  .created Updated {{note.updated_at}}
+
+.info-sections.body-text-color
+  .section
+    .title Words
+    .content {{wordCount}}
+
+  .section
+    .title Paragraphs
+    .content {{paragraphCount}}
+
+.info-sections.body-text-color
+  .section
+    .title Characters
+    .content {{characterCount}}
+
+  .section
+    .title Read Time
+    .content {{readTime}}
+
+.buttons
+  %button.element-background-color.element-text-color{"ng-click" => "buttonPressed('duplicate')"} Duplicate
+  %button.element-background-color.element-text-color{"ng-click" => "buttonPressed('copy')"} Copy to Clipboard
+  %button.element-background-color.element-text-color{"ng-click" => "buttonPressed('save')"} Save
+  %button.element-background-color.element-text-color{"ng-click" => "buttonPressed('email')"} Email
