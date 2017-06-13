@@ -1,9 +1,9 @@
 {
-  "name": "TagsAutocomplete",
+  "name": "Action Bar",
   "description": "",
   "main": "",
-  "license": "MIT",
-  "homepage": "https://github.com/sn-extensions/folders-component",
+  "license": "GPLv3",
+  "homepage": "https://github.com/sn-extensions/action-bar",
   "ignore": [
     "**/.*",
     "node_modules",
