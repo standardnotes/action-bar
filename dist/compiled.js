@@ -33623,7 +33623,7 @@ angular.module('app', []);class HomeCtrl {
     let componentManager = new window.ComponentManager(permissions, function () {
       // on ready
     });
-    componentManager.loggingEnabled = true;
+    componentManager.loggingEnabled = false;
 
     $scope.formData = {};
     let defaultHeight = 56;
