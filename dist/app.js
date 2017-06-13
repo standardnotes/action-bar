@@ -11,6 +11,7 @@ angular.module('app', []);class HomeCtrl {
     let componentManager = new window.ComponentManager(permissions, function () {
       // on ready
     });
+    componentManager.loggingEnabled = true;
 
     $scope.formData = {};
     let defaultHeight = 56;
@@ -83,7 +84,7 @@ angular.module('app', []);class HomeCtrl {
           $scope.copied = false;
         }, 1000);
       } catch (err) {
-        console.log("failed to copy", toCopy);
+        console.error("Failed to copy", toCopy);
       }
 
       textarea.remove();

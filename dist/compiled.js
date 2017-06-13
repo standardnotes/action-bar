@@ -33507,11 +33507,20 @@ class ComponentManager {
   }
 
   deleteItem(item) {
-    this.postMessage("delete-item", { item: this.jsonObjectForItem(item) });
+    this.deleteItems([item]);
+  }
+
+  deleteItems(items) {
+    var params = {
+      items: items.map(function (item) {
+        return this.jsonObjectForItem(item);
+      }.bind(this))
+    };
+    this.postMessage("delete-items", params);
   }
 
   saveItem(item) {
-    this.saveItems[item];
+    this.saveItems([item]);
   }
 
   saveItems(items) {
@@ -33614,6 +33623,7 @@ angular.module('app', []);class HomeCtrl {
     let componentManager = new window.ComponentManager(permissions, function () {
       // on ready
     });
+    componentManager.loggingEnabled = true;
 
     $scope.formData = {};
     let defaultHeight = 56;
@@ -33686,7 +33696,7 @@ angular.module('app', []);class HomeCtrl {
           $scope.copied = false;
         }, 1000);
       } catch (err) {
-        console.log("failed to copy", toCopy);
+        console.error("Failed to copy", toCopy);
       }
 
       textarea.remove();
