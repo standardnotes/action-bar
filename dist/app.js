@@ -48,6 +48,9 @@ angular.module('app', []);class HomeCtrl {
       switch (action) {
         case "duplicate":
           var copy = JSON.parse(JSON.stringify($scope.note));
+          copy.content.title += " (copy)";
+          copy.created_at = new Date();
+          copy.updated_at = new Date();
           copy.uuid = null;
           componentManager.createItem(copy);
           break;
