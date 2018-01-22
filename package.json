@@ -1,6 +1,6 @@
 {
   "name": "sn-action-bar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-cssmin": "^1.0.2",
