@@ -1,6 +1,6 @@
 {
   "name": "sn-action-bar",
-  "version": "1.0.1",
+  "version": "1.0.11",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-cssmin": "^1.0.2",
@@ -17,9 +17,7 @@
     "grunt-browserify": "^5.0.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-uglify": "^2.0.0",
-    "grunt-ng-annotate": "^3.0.0"
-  },
-  "dependencies": {
+    "grunt-ng-annotate": "^3.0.0",
     "sn-components-api": "^1.0.242"
   }
 }
