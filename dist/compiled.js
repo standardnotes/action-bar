@@ -34363,9 +34363,8 @@ var HomeCtrl = function HomeCtrl($rootScope, $scope, $timeout) {
         downloadText($scope.note.content.title, $scope.note.content.text);
         break;
       case "email":
-        window.location.href = "mailto:?subject=" + $scope.note.content.title + "&body=" + encodeURIComponent($scope.note.content.text);
+        window.open("mailto:?subject=" + $scope.note.content.title + "&body=" + encodeURIComponent($scope.note.content.text), "_blank");
         break;
-
     }
   };
 
