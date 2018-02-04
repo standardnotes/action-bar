@@ -5,7 +5,8 @@ module.exports = function(grunt) {
     watch: {
       js: {
         files: ['./app/js/**/*.js'],
-        tasks: ['concat:app', 'babel', 'browserify',  'concat:lib', 'concat:dist', 'ngAnnotate'],
+        tasks: ['concat:app', 'ngtemplates', 'concat:app', 'babel', 'browserify',
+        'concat:lib', 'concat:dist', 'concat:css', 'ngAnnotate', 'uglify'],
         options: {
           spawn: false,
         },

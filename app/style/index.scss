@@ -27,6 +27,7 @@ body {
 }
 
 .sn-component {
+  user-select: inherit !important;
   .content {
     padding: 0 !important;
     margin: 0 !important;
@@ -39,6 +40,19 @@ body {
 
   .panel-row {
     padding-top: 0 !important;
+    align-items: flex-start !important;
+  }
+
+  .button-group {
+    white-space: nowrap; // prevent buttons from wrapping, makes them stay in one line.
+  }
+
+  .button {
+    margin-bottom: 0.5rem;
+  }
+
+  .button .label {
+    font-weight: normal !important;
   }
 }
 
@@ -82,10 +96,12 @@ body {
     .title {
       font-weight: bold;
       display: inline-block;
+      vertical-align: middle;
     }
     .content {
       font-weight: normal;
       display: inline-block;
+      vertical-align: middle;
     }
   }
 }

@@ -15,7 +15,6 @@ class HomeCtrl {
     $scope.formData = {};
     let defaultHeight = 56;
 
-
     $scope.analyzeNote = function() {
       var text = $scope.note.content.text;
       $scope.wordCount = countWords(text);

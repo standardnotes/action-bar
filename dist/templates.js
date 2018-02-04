@@ -39,7 +39,8 @@ angular.module('app').run(['$templateCache', function($templateCache) {
     "<div class='panel-section'>\n" +
     "<div class='panel-row'>\n" +
     "<div class='panel-column meta body-text-color'>\n" +
-    "<div class='title'>{{note.content.title}}</div>\n" +
+    "<div class='title' ng-click='note.showId = !note.showId'>{{note.content.title}}</div>\n" +
+    "<div class='created' ng-if='note.showId'>ID {{note.uuid}}</div>\n" +
     "<div class='created'>Created {{note.created_at}}</div>\n" +
     "<div class='created'>Updated {{note.updated_at}}</div>\n" +
     "</div>\n" +
@@ -64,16 +65,16 @@ angular.module('app').run(['$templateCache', function($templateCache) {
     "</div>\n" +
     "</div>\n" +
     "<div class='panel-column button-group'>\n" +
-    "<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)'>\n" +
+    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)'>\n" +
     "<div class='label'>Duplicate</div>\n" +
     "</div>\n" +
-    "<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)'>\n" +
+    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)'>\n" +
     "<div class='label'>Copy to Clipboard</div>\n" +
     "</div>\n" +
-    "<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)'>\n" +
+    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)'>\n" +
     "<div class='label'>Save</div>\n" +
     "</div>\n" +
-    "<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;email&#39;)'>\n" +
+    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;email&#39;)'>\n" +
     "<div class='label'>Email</div>\n" +
     "</div>\n" +
     "</div>\n" +

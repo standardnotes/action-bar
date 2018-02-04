@@ -4,7 +4,8 @@
 <div class='panel-section'>
 <div class='panel-row'>
 <div class='panel-column meta body-text-color'>
-<div class='title'>{{note.content.title}}</div>
+<div class='title' ng-click='note.showId = !note.showId'>{{note.content.title}}</div>
+<div class='created' ng-if='note.showId'>ID {{note.uuid}}</div>
 <div class='created'>Created {{note.created_at}}</div>
 <div class='created'>Updated {{note.updated_at}}</div>
 </div>
@@ -29,16 +30,16 @@
 </div>
 </div>
 <div class='panel-column button-group'>
-<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)'>
+<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)'>
 <div class='label'>Duplicate</div>
 </div>
-<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)'>
+<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)'>
 <div class='label'>Copy to Clipboard</div>
 </div>
-<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)'>
+<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)'>
 <div class='label'>Save</div>
 </div>
-<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;email&#39;)'>
+<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;email&#39;)'>
 <div class='label'>Email</div>
 </div>
 </div>

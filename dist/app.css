@@ -69,6 +69,9 @@ body {
   min-width: 700px;
 }
 
+.sn-component {
+  user-select: inherit !important;
+}
 .sn-component .content {
   padding: 0 !important;
   margin: 0 !important;
@@ -79,6 +82,16 @@ body {
 }
 .sn-component .panel-row {
   padding-top: 0 !important;
+  align-items: flex-start !important;
+}
+.sn-component .button-group {
+  white-space: nowrap;
+}
+.sn-component .button {
+  margin-bottom: 0.5rem;
+}
+.sn-component .button .label {
+  font-weight: normal !important;
 }
 
 .meta {
@@ -112,10 +125,12 @@ body {
 .info-sections .section .title {
   font-weight: bold;
   display: inline-block;
+  vertical-align: middle;
 }
 .info-sections .section .content {
   font-weight: normal;
   display: inline-block;
+  vertical-align: middle;
 }
 
 .buttons {
