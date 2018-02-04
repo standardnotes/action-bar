@@ -1,28 +1,38 @@
-.meta.body-text-color
-  .title {{note.content.title}}
-  .created Created {{note.created_at}}
-  .created Updated {{note.updated_at}}
+.sn-component
+  .panel.static
+    .content
+      .panel-section
+        .panel-row
 
-.info-sections.body-text-color
-  .section
-    .title Words
-    .content {{wordCount}}
+          .panel-column.meta.body-text-color
+            .title {{note.content.title}}
+            .created Created {{note.created_at}}
+            .created Updated {{note.updated_at}}
 
-  .section
-    .title Paragraphs
-    .content {{paragraphCount}}
+          .panel-column.info-sections.body-text-color
+            .section
+              .title Words
+              .content {{wordCount}}
 
-.info-sections.body-text-color
-  .section
-    .title Characters
-    .content {{characterCount}}
+            .section
+              .title Paragraphs
+              .content {{paragraphCount}}
 
-  .section
-    .title Read Time
-    .content {{readTime}}
+          .panel-column.info-sections.body-text-color
+            .section
+              .title Characters
+              .content {{characterCount}}
 
-.buttons
-  %button.element-background-color.element-text-color{"ng-click" => "buttonPressed('duplicate')"} Duplicate
-  %button.element-background-color.element-text-color{"ng-click" => "buttonPressed('copy')"} Copy to Clipboard
-  %button.element-background-color.element-text-color{"ng-click" => "buttonPressed('save')"} Save
-  %button.element-background-color.element-text-color{"ng-click" => "buttonPressed('email')"} Email
+            .section
+              .title Read Time
+              .content {{readTime}}
+
+          .panel-column.button-group
+            .button.info.element-background-color.element-text-color{"ng-click" => "buttonPressed('duplicate')"}
+              .label Duplicate
+            .button.info.element-background-color.element-text-color{"ng-click" => "buttonPressed('copy')"}
+              .label Copy to Clipboard
+            .button.info.element-background-color.element-text-color{"ng-click" => "buttonPressed('save')"}
+              .label Save
+            .button.info.element-background-color.element-text-color{"ng-click" => "buttonPressed('email')"}
+              .label Email

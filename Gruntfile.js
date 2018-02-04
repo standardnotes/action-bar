@@ -13,7 +13,8 @@ module.exports = function(grunt) {
 
       haml: {
         files: ['./app/templates/**/*.haml'],
-        tasks: ['newer:haml', 'ngtemplates', 'concat'],
+        tasks: ['newer:haml', 'haml', 'ngtemplates', 'concat:app', 'babel', 'browserify',
+        'concat:lib', 'concat:dist', 'ngAnnotate', 'uglify'],
         options: {
           spawn: false,
         },
@@ -21,7 +22,7 @@ module.exports = function(grunt) {
 
       css: {
         files: ['./app/style/**/*.scss'],
-        tasks: ['sass'],
+        tasks: ['sass', 'concat:css'],
         options: {
           spawn: false,
         },
@@ -72,6 +73,17 @@ module.exports = function(grunt) {
         src: ['dist/lib.js', 'dist/app.js', 'dist/templates.js'],
         dest: 'dist/compiled.js',
       },
+
+      css: {
+        options: {
+          separator: '',
+        },
+        src: [
+          'dist/app.css',
+          'node_modules/sn-stylekit/dist/stylekit.css'
+        ],
+        dest: 'dist/app.css'
+      }
     },
 
 
@@ -142,6 +154,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'haml', 'sass', 'ngtemplates', 'concat:app', 'babel', 'browserify',
-    'concat:lib', 'concat:dist', 'ngAnnotate', 'uglify'
+    'concat:lib', 'concat:dist', 'concat:css', 'ngAnnotate', 'uglify'
   ]);
 };

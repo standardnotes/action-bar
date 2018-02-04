@@ -33,12 +33,17 @@ angular.module('app').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('home.html',
-    "<div class='meta body-text-color'>\n" +
+    "<div class='sn-component'>\n" +
+    "<div class='panel static'>\n" +
+    "<div class='content'>\n" +
+    "<div class='panel-section'>\n" +
+    "<div class='panel-row'>\n" +
+    "<div class='panel-column meta body-text-color'>\n" +
     "<div class='title'>{{note.content.title}}</div>\n" +
     "<div class='created'>Created {{note.created_at}}</div>\n" +
     "<div class='created'>Updated {{note.updated_at}}</div>\n" +
     "</div>\n" +
-    "<div class='info-sections body-text-color'>\n" +
+    "<div class='panel-column info-sections body-text-color'>\n" +
     "<div class='section'>\n" +
     "<div class='title'>Words</div>\n" +
     "<div class='content'>{{wordCount}}</div>\n" +
@@ -48,7 +53,7 @@ angular.module('app').run(['$templateCache', function($templateCache) {
     "<div class='content'>{{paragraphCount}}</div>\n" +
     "</div>\n" +
     "</div>\n" +
-    "<div class='info-sections body-text-color'>\n" +
+    "<div class='panel-column info-sections body-text-color'>\n" +
     "<div class='section'>\n" +
     "<div class='title'>Characters</div>\n" +
     "<div class='content'>{{characterCount}}</div>\n" +
@@ -58,11 +63,24 @@ angular.module('app').run(['$templateCache', function($templateCache) {
     "<div class='content'>{{readTime}}</div>\n" +
     "</div>\n" +
     "</div>\n" +
-    "<div class='buttons'>\n" +
-    "<button class='element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)'>Duplicate</button>\n" +
-    "<button class='element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)'>Copy to Clipboard</button>\n" +
-    "<button class='element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)'>Save</button>\n" +
-    "<button class='element-background-color element-text-color' ng-click='buttonPressed(&#39;email&#39;)'>Email</button>\n" +
+    "<div class='panel-column button-group'>\n" +
+    "<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)'>\n" +
+    "<div class='label'>Duplicate</div>\n" +
+    "</div>\n" +
+    "<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)'>\n" +
+    "<div class='label'>Copy to Clipboard</div>\n" +
+    "</div>\n" +
+    "<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)'>\n" +
+    "<div class='label'>Save</div>\n" +
+    "</div>\n" +
+    "<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;email&#39;)'>\n" +
+    "<div class='label'>Email</div>\n" +
+    "</div>\n" +
+    "</div>\n" +
+    "</div>\n" +
+    "</div>\n" +
+    "</div>\n" +
+    "</div>\n" +
     "</div>\n"
   );
 

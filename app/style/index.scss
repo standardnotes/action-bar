@@ -26,6 +26,22 @@ body {
   min-width: 700px;
 }
 
+.sn-component {
+  .content {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .panel-section {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .panel-row {
+    padding-top: 0 !important;
+  }
+}
+
 .meta {
   display: inline-block;
   vertical-align: middle;

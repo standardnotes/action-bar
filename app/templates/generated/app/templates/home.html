@@ -1,9 +1,14 @@
-<div class='meta body-text-color'>
+<div class='sn-component'>
+<div class='panel static'>
+<div class='content'>
+<div class='panel-section'>
+<div class='panel-row'>
+<div class='panel-column meta body-text-color'>
 <div class='title'>{{note.content.title}}</div>
 <div class='created'>Created {{note.created_at}}</div>
 <div class='created'>Updated {{note.updated_at}}</div>
 </div>
-<div class='info-sections body-text-color'>
+<div class='panel-column info-sections body-text-color'>
 <div class='section'>
 <div class='title'>Words</div>
 <div class='content'>{{wordCount}}</div>
@@ -13,7 +18,7 @@
 <div class='content'>{{paragraphCount}}</div>
 </div>
 </div>
-<div class='info-sections body-text-color'>
+<div class='panel-column info-sections body-text-color'>
 <div class='section'>
 <div class='title'>Characters</div>
 <div class='content'>{{characterCount}}</div>
@@ -23,9 +28,22 @@
 <div class='content'>{{readTime}}</div>
 </div>
 </div>
-<div class='buttons'>
-<button class='element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)'>Duplicate</button>
-<button class='element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)'>Copy to Clipboard</button>
-<button class='element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)'>Save</button>
-<button class='element-background-color element-text-color' ng-click='buttonPressed(&#39;email&#39;)'>Email</button>
+<div class='panel-column button-group'>
+<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)'>
+<div class='label'>Duplicate</div>
+</div>
+<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)'>
+<div class='label'>Copy to Clipboard</div>
+</div>
+<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)'>
+<div class='label'>Save</div>
+</div>
+<div class='button info element-background-color element-text-color' ng-click='buttonPressed(&#39;email&#39;)'>
+<div class='label'>Email</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
