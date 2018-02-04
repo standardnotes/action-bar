@@ -112,12 +112,17 @@ body {
 }
 .meta .created {
   margin-top: 2px;
+  white-space: nowrap;
 }
 
 .info-sections {
   vertical-align: middle;
   display: inline-block;
   margin-left: 22px;
+  margin-right: 22px;
+}
+.info-sections .section {
+  white-space: nowrap;
 }
 .info-sections .section:not(:last-child) {
   margin-bottom: 6px;

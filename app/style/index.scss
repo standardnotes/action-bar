@@ -76,6 +76,7 @@ body {
 
   .created {
     margin-top: 2px;
+    white-space: nowrap;
   }
 
   .updated {
@@ -88,8 +89,10 @@ body {
   vertical-align: middle;
   display: inline-block;
   margin-left: 22px;
+  margin-right: 22px;
 
   .section {
+    white-space: nowrap;
     &:not(:last-child) {
       margin-bottom: 6px;
     }
