@@ -1,6 +1,6 @@
 {
   "name": "sn-action-bar",
-  "version": "1.0.142",
+  "version": "1.0.15",
   "devDependencies": {
     "angular": "^1.6.1",
     "babel-cli": "^6.18.0",
@@ -19,6 +19,6 @@
     "grunt-newer": "^1.2.0",
     "grunt-ng-annotate": "^3.0.0",
     "sn-components-api": "^1.0.242",
-    "sn-stylekit": "^1.0.1197"
+    "sn-stylekit": "1.0.12"
   }
 }
