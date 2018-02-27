@@ -1,8 +1,8 @@
 <div class='sn-component'>
-<div class='panel static'>
+<div class='panel static body-background-color body-text-color'>
 <div class='content'>
 <div class='panel-section'>
-<div class='panel-row'>
+<div class='panel-row' id='main-content'>
 <div class='panel-column meta body-text-color'>
 <div class='title' ng-click='note.showId = !note.showId'>{{note.content.title}}</div>
 <div class='created' ng-if='note.showId'>ID {{note.uuid}}</div>
@@ -12,21 +12,21 @@
 <div class='panel-column info-sections body-text-color'>
 <div class='section'>
 <div class='title'>Words</div>
-<div class='content'>{{wordCount}}</div>
+<div class='info-content'>{{wordCount}}</div>
 </div>
 <div class='section'>
 <div class='title'>Paragraphs</div>
-<div class='content'>{{paragraphCount}}</div>
+<div class='info-content'>{{paragraphCount}}</div>
 </div>
 </div>
 <div class='panel-column info-sections body-text-color'>
 <div class='section'>
 <div class='title'>Characters</div>
-<div class='content'>{{characterCount}}</div>
+<div class='info-content'>{{characterCount}}</div>
 </div>
 <div class='section'>
 <div class='title'>Read Time</div>
-<div class='content'>{{readTime}}</div>
+<div class='info-content'>{{readTime}}</div>
 </div>
 </div>
 <div class='panel-column button-group'>

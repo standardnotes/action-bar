@@ -1,9 +1,8 @@
 .sn-component
-  .panel.static
+  .panel.static.body-background-color.body-text-color
     .content
       .panel-section
-        .panel-row
-
+        .panel-row#main-content
           .panel-column.meta.body-text-color
             .title{"ng-click" => "note.showId = !note.showId"} {{note.content.title}}
             .created{"ng-if" => "note.showId"} ID {{note.uuid}}
@@ -13,20 +12,20 @@
           .panel-column.info-sections.body-text-color
             .section
               .title Words
-              .content {{wordCount}}
+              .info-content {{wordCount}}
 
             .section
               .title Paragraphs
-              .content {{paragraphCount}}
+              .info-content {{paragraphCount}}
 
           .panel-column.info-sections.body-text-color
             .section
               .title Characters
-              .content {{characterCount}}
+              .info-content {{characterCount}}
 
             .section
               .title Read Time
-              .content {{readTime}}
+              .info-content {{readTime}}
 
           .panel-column.button-group
             .button.default.element-background-color.element-text-color{"ng-click" => "buttonPressed('duplicate')"}

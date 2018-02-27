@@ -2,7 +2,10 @@
 $blue-color: #086dd6;
 
 html, body {
+  margin: 0;
+  padding: 0;
   overflow: auto;
+  overflow-y: hidden;
 }
 
 html {
@@ -14,22 +17,31 @@ body {
   background-color: transparent;
   font-family: sans-serif;
   margin: 0;
-  padding: 10px 10px;
-  padding-bottom: 6px;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 12px;
-  min-width: 700px;
+}
+
+#main-content {
+  padding: 10px 10px;
+  padding-bottom: 6px;
+}
+
+.button-group {
+  padding-right: 10px;
 }
 
 .sn-component {
   user-select: inherit !important;
+
   .content {
     padding: 0 !important;
     margin: 0 !important;
+    overflow-x: auto;
   }
 
   .panel-section {
@@ -38,7 +50,6 @@ body {
   }
 
   .panel-row {
-    padding-top: 0 !important;
     align-items: flex-start !important;
   }
 
@@ -98,12 +109,14 @@ body {
     &:not(:last-child) {
       margin-bottom: 6px;
     }
+
     .title {
       font-weight: bold;
       display: inline-block;
       vertical-align: middle;
     }
-    .content {
+
+    .info-content {
       font-weight: normal;
       display: inline-block;
       vertical-align: middle;

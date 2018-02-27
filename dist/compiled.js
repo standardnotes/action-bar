@@ -34460,10 +34460,10 @@ angular.module('app').controller('HomeCtrl', HomeCtrl);
 
   $templateCache.put('home.html',
     "<div class='sn-component'>\n" +
-    "<div class='panel static'>\n" +
+    "<div class='panel static body-background-color body-text-color'>\n" +
     "<div class='content'>\n" +
     "<div class='panel-section'>\n" +
-    "<div class='panel-row'>\n" +
+    "<div class='panel-row' id='main-content'>\n" +
     "<div class='panel-column meta body-text-color'>\n" +
     "<div class='title' ng-click='note.showId = !note.showId'>{{note.content.title}}</div>\n" +
     "<div class='created' ng-if='note.showId'>ID {{note.uuid}}</div>\n" +
@@ -34473,21 +34473,21 @@ angular.module('app').controller('HomeCtrl', HomeCtrl);
     "<div class='panel-column info-sections body-text-color'>\n" +
     "<div class='section'>\n" +
     "<div class='title'>Words</div>\n" +
-    "<div class='content'>{{wordCount}}</div>\n" +
+    "<div class='info-content'>{{wordCount}}</div>\n" +
     "</div>\n" +
     "<div class='section'>\n" +
     "<div class='title'>Paragraphs</div>\n" +
-    "<div class='content'>{{paragraphCount}}</div>\n" +
+    "<div class='info-content'>{{paragraphCount}}</div>\n" +
     "</div>\n" +
     "</div>\n" +
     "<div class='panel-column info-sections body-text-color'>\n" +
     "<div class='section'>\n" +
     "<div class='title'>Characters</div>\n" +
-    "<div class='content'>{{characterCount}}</div>\n" +
+    "<div class='info-content'>{{characterCount}}</div>\n" +
     "</div>\n" +
     "<div class='section'>\n" +
     "<div class='title'>Read Time</div>\n" +
-    "<div class='content'>{{readTime}}</div>\n" +
+    "<div class='info-content'>{{readTime}}</div>\n" +
     "</div>\n" +
     "</div>\n" +
     "<div class='panel-column button-group'>\n" +
