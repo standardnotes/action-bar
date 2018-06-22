@@ -6,8 +6,8 @@
           .panel-column.meta.body-text-color
             .title{"ng-click" => "note.showId = !note.showId"} {{note.content.title}}
             .created{"ng-if" => "note.showId"} ID {{note.uuid}}
-            .created Created {{note.created_at}}
-            .created Updated {{note.updated_at}}
+            .created Created {{createdAt}}
+            .created Updated {{updatedAt}}
 
           .panel-column.info-sections.body-text-color
             .section
@@ -27,11 +27,13 @@
               .title Read Time
               .info-content {{readTime}}
 
-          .panel-column.button-group
+          .panel-column.segmented-buttons
+            .button.default.element-background-color.element-text-color{"ng-click" => "buttonPressed('date')"}
+              .label Date
             .button.default.element-background-color.element-text-color{"ng-click" => "buttonPressed('duplicate')"}
               .label Duplicate
             .button.default.element-background-color.element-text-color{"ng-click" => "buttonPressed('copy')"}
-              .label Copy to Clipboard
+              .label {{copyText || "Copy"}}
             .button.default.element-background-color.element-text-color{"ng-click" => "buttonPressed('save')"}
               .label Save
             .button.default.element-background-color.element-text-color{"ng-click" => "buttonPressed('email')"}

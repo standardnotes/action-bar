@@ -15,8 +15,11 @@ class HomeCtrl {
     $scope.formData = {};
     let defaultHeight = 56;
 
-    $scope.analyzeNote = function() {
-      var text = $scope.note.content.text;
+    $scope.analyzeNote = function(note) {
+      $scope.createdAt = new Date(note.created_at).toLocaleString();
+      $scope.updatedAt = new Date(note.updated_at).toLocaleString();
+
+      var text = note.content.text;
       $scope.wordCount = countWords(text);
       $scope.paragraphCount = text.replace(/\n$/gm, '').split(/\n/).length;
       $scope.characterCount = text.length;
@@ -30,14 +33,12 @@ class HomeCtrl {
         $scope.readTime = `${timeInt} ${noun}`;
       }
 
-      $scope.note.created_at = new Date($scope.note.created_at).toLocaleString();
-      $scope.note.updated_at = new Date($scope.note.updated_at).toLocaleString();
+      $scope.note = note;
     }
 
     componentManager.streamContextItem(function(item){
       $timeout(function(){
-        $scope.note = item;
-        $scope.analyzeNote();
+        $scope.analyzeNote(item);
       })
     })
 
@@ -45,6 +46,11 @@ class HomeCtrl {
 
     $scope.buttonPressed = function(action) {
       switch (action) {
+        case "date":
+          var date = new Date().toLocaleDateString([], {hour: '2-digit', minute: '2-digit'});
+          $scope.note.content.text += date;
+          componentManager.saveItem($scope.note, null, true);
+          break;
         case "duplicate":
           var copy = JSON.parse(JSON.stringify($scope.note));
           copy.content.title += " (copy)";
@@ -55,6 +61,10 @@ class HomeCtrl {
           break;
         case "copy":
           $scope.copyNoteToClipboard();
+          $scope.copyText = "Copied";
+          $timeout(() => {
+            $scope.copyText = "Copy";
+          }, 500)
           break;
         case "save":
           downloadText($scope.note.content.title, $scope.note.content.text);

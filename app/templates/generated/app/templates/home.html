@@ -6,8 +6,8 @@
 <div class='panel-column meta body-text-color'>
 <div class='title' ng-click='note.showId = !note.showId'>{{note.content.title}}</div>
 <div class='created' ng-if='note.showId'>ID {{note.uuid}}</div>
-<div class='created'>Created {{note.created_at}}</div>
-<div class='created'>Updated {{note.updated_at}}</div>
+<div class='created'>Created {{createdAt}}</div>
+<div class='created'>Updated {{updatedAt}}</div>
 </div>
 <div class='panel-column info-sections body-text-color'>
 <div class='section'>
@@ -29,12 +29,15 @@
 <div class='info-content'>{{readTime}}</div>
 </div>
 </div>
-<div class='panel-column button-group'>
+<div class='panel-column segmented-buttons'>
+<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;date&#39;)'>
+<div class='label'>Date</div>
+</div>
 <div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)'>
 <div class='label'>Duplicate</div>
 </div>
 <div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)'>
-<div class='label'>Copy to Clipboard</div>
+<div class='label'>{{copyText || "Copy"}}</div>
 </div>
 <div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)'>
 <div class='label'>Save</div>

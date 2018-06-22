@@ -99,7 +99,6 @@ body {
   vertical-align: middle;
   display: inline-block;
   margin-left: 22px;
-  margin-right: 22px;
 
   .section {
     white-space: nowrap;
@@ -146,4 +145,9 @@ body {
       color: white;
     }
   }
+}
+
+.segmented-buttons {
+  margin-left: 18px;
+  padding-right: 5px;
 }
