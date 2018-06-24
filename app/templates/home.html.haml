@@ -28,13 +28,13 @@
               .info-content {{readTime}}
 
           .panel-column.segmented-buttons
-            .button.default.element-background-color.element-text-color{"ng-click" => "buttonPressed('date')"}
-              .label Date
-            .button.default.element-background-color.element-text-color{"ng-click" => "buttonPressed('duplicate')"}
+            .button.default.element-background-color.element-text-color{"title" => "Copy the current date to the clipboard", "ng-click" => "buttonPressed('date')"}
+              .label {{copiedDate ? "Copied to Clipboard" : "Copy Date"}}
+            .button.default.element-background-color.element-text-color{"title" => "Create a copy of the note", "ng-click" => "buttonPressed('duplicate')"}
               .label Duplicate
-            .button.default.element-background-color.element-text-color{"ng-click" => "buttonPressed('copy')"}
+            .button.default.element-background-color.element-text-color{"title" => "Copy the note's text to the clipboard", "ng-click" => "buttonPressed('copy')"}
               .label {{copyText || "Copy"}}
-            .button.default.element-background-color.element-text-color{"ng-click" => "buttonPressed('save')"}
+            .button.default.element-background-color.element-text-color{"title" => "Save the note as a file", "ng-click" => "buttonPressed('save')"}
               .label Save
-            .button.default.element-background-color.element-text-color{"ng-click" => "buttonPressed('email')"}
+            .button.default.element-background-color.element-text-color{"title" => "Start a new email with the note's text", "ng-click" => "buttonPressed('email')"}
               .label Email

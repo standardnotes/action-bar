@@ -30,19 +30,19 @@
 </div>
 </div>
 <div class='panel-column segmented-buttons'>
-<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;date&#39;)'>
-<div class='label'>Date</div>
+<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;date&#39;)' title='Copy the current date to the clipboard'>
+<div class='label'>{{copiedDate ? "Copied to Clipboard" : "Copy Date"}}</div>
 </div>
-<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)'>
+<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)' title='Create a copy of the note'>
 <div class='label'>Duplicate</div>
 </div>
-<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)'>
+<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)' title='Copy the note&#39;s text to the clipboard'>
 <div class='label'>{{copyText || "Copy"}}</div>
 </div>
-<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)'>
+<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)' title='Save the note as a file'>
 <div class='label'>Save</div>
 </div>
-<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;email&#39;)'>
+<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;email&#39;)' title='Start a new email with the note&#39;s text'>
 <div class='label'>Email</div>
 </div>
 </div>

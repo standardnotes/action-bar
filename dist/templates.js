@@ -65,19 +65,19 @@ angular.module('app').run(['$templateCache', function($templateCache) {
     "</div>\n" +
     "</div>\n" +
     "<div class='panel-column segmented-buttons'>\n" +
-    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;date&#39;)'>\n" +
-    "<div class='label'>Date</div>\n" +
+    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;date&#39;)' title='Copy the current date to the clipboard'>\n" +
+    "<div class='label'>{{copiedDate ? \"Copied to Clipboard\" : \"Copy Date\"}}</div>\n" +
     "</div>\n" +
-    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)'>\n" +
+    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)' title='Create a copy of the note'>\n" +
     "<div class='label'>Duplicate</div>\n" +
     "</div>\n" +
-    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)'>\n" +
+    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)' title='Copy the note&#39;s text to the clipboard'>\n" +
     "<div class='label'>{{copyText || \"Copy\"}}</div>\n" +
     "</div>\n" +
-    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)'>\n" +
+    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)' title='Save the note as a file'>\n" +
     "<div class='label'>Save</div>\n" +
     "</div>\n" +
-    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;email&#39;)'>\n" +
+    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;email&#39;)' title='Start a new email with the note&#39;s text'>\n" +
     "<div class='label'>Email</div>\n" +
     "</div>\n" +
     "</div>\n" +

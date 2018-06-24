@@ -48,8 +48,12 @@ class HomeCtrl {
       switch (action) {
         case "date":
           var date = new Date().toLocaleDateString([], {hour: '2-digit', minute: '2-digit'});
-          $scope.note.content.text += date;
-          componentManager.saveItem($scope.note, null, true);
+          $scope.copyTextToClipboard(date, () => {
+            $scope.copiedDate = true;
+            $timeout(function(){
+              $scope.copiedDate = false;
+            }, 1000)
+          });
           break;
         case "duplicate":
           var copy = JSON.parse(JSON.stringify($scope.note));
@@ -75,31 +79,38 @@ class HomeCtrl {
       }
     }
 
-    $scope.copyNoteToClipboard = function() {
-        var body = angular.element(document.body);
-        var textarea = angular.element('<textarea/>');
-        textarea.css({
-            position: 'fixed',
-            opacity: '0'
-        });
+    $scope.copyTextToClipboard = function(text, completion) {
+      var body = angular.element(document.body);
+      var textarea = angular.element('<textarea/>');
+      textarea.css({
+          position: 'fixed',
+          opacity: '0'
+      });
 
-        textarea.val($scope.note.content.text);
-        body.append(textarea);
-        textarea[0].select();
+      textarea.val(text);
+      body.append(textarea);
+      textarea[0].select();
 
-        try {
-          var successful = document.execCommand('copy');
-          if (!successful) throw successful;
-          $scope.copied = true;
-          $timeout(function(){
-            $scope.copied = false;
-          }, 1000)
-        } catch (err) {
-          console.error("Failed to copy", toCopy);
-        }
+      try {
+        var successful = document.execCommand('copy');
+        if (!successful) throw successful;
+        completion && completion();
+      } catch (err) {
+        console.error("Failed to copy", toCopy);
+      }
 
-        textarea.remove();
+      textarea.remove();
     }
+
+    $scope.copyNoteToClipboard = function() {
+      $scope.copyTextToClipboard($scope.note.content.text, () => {
+        $scope.copied = true;
+        $timeout(function(){
+          $scope.copied = false;
+        }, 1000)
+      });
+    }
+
   }
 }
 

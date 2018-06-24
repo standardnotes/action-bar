@@ -34420,8 +34420,12 @@ var HomeCtrl = function HomeCtrl($rootScope, $scope, $timeout) {
     switch (action) {
       case "date":
         var date = new Date().toLocaleDateString([], { hour: '2-digit', minute: '2-digit' });
-        $scope.note.content.text += date;
-        componentManager.saveItem($scope.note, null, true);
+        $scope.copyTextToClipboard(date, function () {
+          $scope.copiedDate = true;
+          $timeout(function () {
+            $scope.copiedDate = false;
+          }, 1000);
+        });
         break;
       case "duplicate":
         var copy = JSON.parse(JSON.stringify($scope.note));
@@ -34447,7 +34451,7 @@ var HomeCtrl = function HomeCtrl($rootScope, $scope, $timeout) {
     }
   };
 
-  $scope.copyNoteToClipboard = function () {
+  $scope.copyTextToClipboard = function (text, completion) {
     var body = angular.element(document.body);
     var textarea = angular.element('<textarea/>');
     textarea.css({
@@ -34455,22 +34459,28 @@ var HomeCtrl = function HomeCtrl($rootScope, $scope, $timeout) {
       opacity: '0'
     });
 
-    textarea.val($scope.note.content.text);
+    textarea.val(text);
     body.append(textarea);
     textarea[0].select();
 
     try {
       var successful = document.execCommand('copy');
       if (!successful) throw successful;
-      $scope.copied = true;
-      $timeout(function () {
-        $scope.copied = false;
-      }, 1000);
+      completion && completion();
     } catch (err) {
       console.error("Failed to copy", toCopy);
     }
 
     textarea.remove();
+  };
+
+  $scope.copyNoteToClipboard = function () {
+    $scope.copyTextToClipboard($scope.note.content.text, function () {
+      $scope.copied = true;
+      $timeout(function () {
+        $scope.copied = false;
+      }, 1000);
+    });
   };
 };
 HomeCtrl.$inject = ['$rootScope', '$scope', '$timeout'];
@@ -34570,19 +34580,19 @@ angular.module('app').controller('HomeCtrl', HomeCtrl);
     "</div>\n" +
     "</div>\n" +
     "<div class='panel-column segmented-buttons'>\n" +
-    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;date&#39;)'>\n" +
-    "<div class='label'>Date</div>\n" +
+    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;date&#39;)' title='Copy the current date to the clipboard'>\n" +
+    "<div class='label'>{{copiedDate ? \"Copied to Clipboard\" : \"Copy Date\"}}</div>\n" +
     "</div>\n" +
-    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)'>\n" +
+    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;duplicate&#39;)' title='Create a copy of the note'>\n" +
     "<div class='label'>Duplicate</div>\n" +
     "</div>\n" +
-    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)'>\n" +
+    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;copy&#39;)' title='Copy the note&#39;s text to the clipboard'>\n" +
     "<div class='label'>{{copyText || \"Copy\"}}</div>\n" +
     "</div>\n" +
-    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)'>\n" +
+    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;save&#39;)' title='Save the note as a file'>\n" +
     "<div class='label'>Save</div>\n" +
     "</div>\n" +
-    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;email&#39;)'>\n" +
+    "<div class='button default element-background-color element-text-color' ng-click='buttonPressed(&#39;email&#39;)' title='Start a new email with the note&#39;s text'>\n" +
     "<div class='label'>Email</div>\n" +
     "</div>\n" +
     "</div>\n" +
