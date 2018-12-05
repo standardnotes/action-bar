@@ -20,5 +20,8 @@
     "grunt-ng-annotate": "^3.0.0",
     "sn-components-api": "1.1.4",
     "sn-stylekit": "1.1.1"
+  },
+  "dependencies": {
+    "acorn": "^6.0.4"
   }
 }

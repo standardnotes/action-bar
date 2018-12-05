@@ -13,6 +13,17 @@ html {
   width: 100%;
 }
 
+.ng-scope, .sn-component, .panel, .content {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+#panel-content {
+  // On Windows, a horizontal scroll bar also creates a vertical scroll bar on Firefox.
+  // Ideally this interface would be responsive and always scroll vertically instead.
+  overflow-x: hidden !important;
+}
+
 body {
   background-color: transparent;
   font-family: sans-serif;
@@ -29,6 +40,7 @@ body {
 #main-content {
   padding: 10px 10px;
   padding-bottom: 6px;
+  height: 100%;
 }
 
 .button-group {
@@ -37,11 +49,13 @@ body {
 
 .sn-component {
   user-select: inherit !important;
+  height: 100%;
 
   .content {
     padding: 0 !important;
     margin: 0 !important;
-    overflow-x: auto;
+    // overflow-x: auto;
+    height: 100%;
   }
 
   .panel-section {
