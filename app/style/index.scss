@@ -1,5 +1,4 @@
 @import 'reset';
-$blue-color: #086dd6;
 
 html, body {
   margin: 0;
@@ -22,6 +21,7 @@ html {
   // On Windows, a horizontal scroll bar also creates a vertical scroll bar on Firefox.
   // Ideally this interface would be responsive and always scroll vertically instead.
   overflow-x: hidden !important;
+  padding: 0;
 }
 
 body {
@@ -137,31 +137,7 @@ body {
   }
 }
 
-.buttons {
-  display: inline-block;
-  float: right;
-  padding-top: 2px;
-
-  button {
-    padding: 8px;
-    border: 1px solid rgba(gray, 0.2);
-    border-radius: 0;
-    background-color: transparent;
-    cursor: pointer;
-    outline: 0;
-
-    &:hover {
-      background-color: rgba(gray, 0.2);
-    }
-
-    &:active {
-      background-color: rgba($blue-color, 1.0);
-      color: white;
-    }
-  }
-}
-
-.segmented-buttons {
+.sk-segmented-buttons {
   margin-left: 18px;
   padding-right: 5px;
 }
