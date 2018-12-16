@@ -1,6 +1,6 @@
 {
   "name": "sn-action-bar",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "devDependencies": {
     "angular": "^1.6.1",
     "babel-cli": "^6.18.0",

@@ -56,12 +56,7 @@ class HomeCtrl {
           });
           break;
         case "duplicate":
-          var copy = JSON.parse(JSON.stringify($scope.note));
-          copy.content.title += " (copy)";
-          copy.created_at = new Date();
-          copy.updated_at = new Date();
-          copy.uuid = null;
-          componentManager.createItem(copy);
+          componentManager.sendCustomEvent("duplicate-item", {item: $scope.note});
           break;
         case "copy":
           $scope.copyNoteToClipboard();
