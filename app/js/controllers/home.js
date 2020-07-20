@@ -1,33 +1,33 @@
 class HomeCtrl {
   constructor($rootScope, $scope, $timeout) {
 
-    var permissions = [{
+    const permissions = [{
       name: "stream-context-item"
     }];
 
-    let componentManager = new window.ComponentManager(permissions, function () {
+    const componentManager = new window.ComponentManager(permissions, function () {
       // on ready
     });
     componentManager.loggingEnabled = false;
 
     $scope.formData = {};
-    let defaultHeight = 56;
+    const defaultHeight = 56;
 
     $scope.analyzeNote = function (note) {
       $scope.createdAt = new Date(note.created_at).toLocaleString();
       $scope.updatedAt = new Date(note.updated_at).toLocaleString();
 
-      var text = note.content.text;
+      const text = note.content.text;
       $scope.wordCount = countWords(text);
       $scope.paragraphCount = text.replace(/\n$/gm, '').split(/\n/).length;
       $scope.characterCount = text.length;
 
-      var timeToRead = $scope.wordCount / 200;
-      var timeInt = Math.round(timeToRead);
+      const timeToRead = $scope.wordCount / 200;
+      const timeInt = Math.round(timeToRead);
       if (timeInt == 0) {
         $scope.readTime = "< 1 minute"
       } else {
-        var noun = timeInt == 1 ? "minute" : "minutes";
+        const noun = timeInt == 1 ? "minute" : "minutes";
         $scope.readTime = `${timeInt} ${noun}`;
       }
 
@@ -45,7 +45,7 @@ class HomeCtrl {
     $scope.buttonPressed = function (action) {
       switch (action) {
         case "date":
-          var date = new Date().toLocaleDateString([], {
+          const date = new Date().toLocaleDateString([], {
             hour: '2-digit',
             minute: '2-digit'
           });
@@ -78,8 +78,8 @@ class HomeCtrl {
     }
 
     $scope.copyTextToClipboard = function (text, completion) {
-      var body = angular.element(document.body);
-      var textarea = angular.element('<textarea/>');
+      const body = angular.element(document.body);
+      const textarea = angular.element('<textarea/>');
       textarea.css({
         position: 'fixed',
         opacity: '0'
@@ -90,7 +90,7 @@ class HomeCtrl {
       textarea[0].select();
 
       try {
-        var successful = document.execCommand('copy');
+        const successful = document.execCommand('copy');
         if (!successful) throw successful;
         completion && completion();
       } catch (err) {
@@ -120,12 +120,12 @@ function countWords(s) {
 }
 
 function downloadText(filename, text) {
-  var pom = document.createElement('a');
+  const pom = document.createElement('a');
   pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
   pom.setAttribute('download', filename);
 
   if (document.createEvent) {
-    var event = document.createEvent('MouseEvents');
+    const event = document.createEvent('MouseEvents');
     event.initEvent('click', true, true);
     pom.dispatchEvent(event);
   } else {
