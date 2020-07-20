@@ -694,6 +694,14 @@ var HomeCtrl = function HomeCtrl($rootScope, $scope, $timeout) {
     $scope.updatedAt = new Date(note.updated_at).toLocaleString();
 
     var text = note.content.text;
+    if (!note.content.appData.prefersPlainEditor) {
+      // Remove HTML tags if not in the plain editor.
+      // HTML is already cleaned by the editor on save.
+      var div = document.createElement("div");
+      div.innerHTML = text;
+      text = div.textContent || div.innerText || "";
+    }
+
     $scope.wordCount = countWords(text);
     $scope.paragraphCount = text.replace(/\n$/gm, '').split(/\n/).length;
     $scope.characterCount = text.length;
