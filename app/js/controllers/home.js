@@ -1,13 +1,11 @@
 class HomeCtrl {
   constructor($rootScope, $scope, $timeout) {
 
-    var permissions = [
-      {
-        name: "stream-context-item"
-      }
-    ]
+    var permissions = [{
+      name: "stream-context-item"
+    }];
 
-    let componentManager = new window.ComponentManager(permissions, function(){
+    let componentManager = new window.ComponentManager(permissions, function () {
       // on ready
     });
     componentManager.loggingEnabled = false;
@@ -15,7 +13,7 @@ class HomeCtrl {
     $scope.formData = {};
     let defaultHeight = 56;
 
-    $scope.analyzeNote = function(note) {
+    $scope.analyzeNote = function (note) {
       $scope.createdAt = new Date(note.created_at).toLocaleString();
       $scope.updatedAt = new Date(note.updated_at).toLocaleString();
 
@@ -26,7 +24,7 @@ class HomeCtrl {
 
       var timeToRead = $scope.wordCount / 200;
       var timeInt = Math.round(timeToRead);
-      if(timeInt == 0) {
+      if (timeInt == 0) {
         $scope.readTime = "< 1 minute"
       } else {
         var noun = timeInt == 1 ? "minute" : "minutes";
@@ -36,27 +34,32 @@ class HomeCtrl {
       $scope.note = note;
     }
 
-    componentManager.streamContextItem(function(item){
-      $timeout(function(){
+    componentManager.streamContextItem(function (item) {
+      $timeout(function () {
         $scope.analyzeNote(item);
       })
     })
 
     componentManager.setSize("container", "100%", defaultHeight);
 
-    $scope.buttonPressed = function(action) {
+    $scope.buttonPressed = function (action) {
       switch (action) {
         case "date":
-          var date = new Date().toLocaleDateString([], {hour: '2-digit', minute: '2-digit'});
+          var date = new Date().toLocaleDateString([], {
+            hour: '2-digit',
+            minute: '2-digit'
+          });
           $scope.copyTextToClipboard(date, () => {
             $scope.copiedDate = true;
-            $timeout(function(){
+            $timeout(function () {
               $scope.copiedDate = false;
             }, 1000)
           });
           break;
         case "duplicate":
-          componentManager.sendCustomEvent("duplicate-item", {item: $scope.note});
+          componentManager.sendCustomEvent("duplicate-item", {
+            item: $scope.note
+          });
           break;
         case "copy":
           $scope.copyNoteToClipboard();
@@ -74,12 +77,12 @@ class HomeCtrl {
       }
     }
 
-    $scope.copyTextToClipboard = function(text, completion) {
+    $scope.copyTextToClipboard = function (text, completion) {
       var body = angular.element(document.body);
       var textarea = angular.element('<textarea/>');
       textarea.css({
-          position: 'fixed',
-          opacity: '0'
+        position: 'fixed',
+        opacity: '0'
       });
 
       textarea.val(text);
@@ -97,10 +100,10 @@ class HomeCtrl {
       textarea.remove();
     }
 
-    $scope.copyNoteToClipboard = function() {
+    $scope.copyNoteToClipboard = function () {
       $scope.copyTextToClipboard($scope.note.content.text, () => {
         $scope.copied = true;
-        $timeout(function(){
+        $timeout(function () {
           $scope.copied = false;
         }, 1000)
       });
@@ -109,26 +112,25 @@ class HomeCtrl {
   }
 }
 
-function countWords(s){
-  s = s.replace(/(^\s*)|(\s*$)/gi,"");//exclude  start and end white-space
-  s = s.replace(/[ ]{2,}/gi," ");//2 or more space to 1
-  s = s.replace(/\n /,"\n"); // exclude newline with a start spacing
+function countWords(s) {
+  s = s.replace(/(^\s*)|(\s*$)/gi, ""); //exclude  start and end white-space
+  s = s.replace(/[ ]{2,}/gi, " "); //2 or more space to 1
+  s = s.replace(/\n /, "\n"); // exclude newline with a start spacing
   return s.split(' ').length;
 }
 
 function downloadText(filename, text) {
-    var pom = document.createElement('a');
-    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-    pom.setAttribute('download', filename);
+  var pom = document.createElement('a');
+  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  pom.setAttribute('download', filename);
 
-    if (document.createEvent) {
-        var event = document.createEvent('MouseEvents');
-        event.initEvent('click', true, true);
-        pom.dispatchEvent(event);
-    }
-    else {
-        pom.click();
-    }
+  if (document.createEvent) {
+    var event = document.createEvent('MouseEvents');
+    event.initEvent('click', true, true);
+    pom.dispatchEvent(event);
+  } else {
+    pom.click();
+  }
 }
 
 // required for firefox

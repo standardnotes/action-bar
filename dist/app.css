@@ -47,7 +47,8 @@ table {
   border-spacing: 0;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   overflow: auto;
@@ -60,7 +61,10 @@ html {
   width: 100%;
 }
 
-.ng-scope, .sn-component, .panel, .content {
+.ng-scope,
+.sn-component,
+.panel,
+.content {
   height: 100%;
   overflow-x: hidden;
 }
@@ -128,7 +132,8 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.meta .created, .meta .updated {
+.meta .created,
+.meta .updated {
   font-size: 10px;
   opacity: 0.5;
 }
