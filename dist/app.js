@@ -721,7 +721,10 @@ var HomeCtrl = function HomeCtrl($rootScope, $scope, $timeout) {
   $scope.buttonPressed = function (action) {
     switch (action) {
       case "date":
-        var date = new Date().toLocaleDateString([], { hour: '2-digit', minute: '2-digit' });
+        var date = new Date().toLocaleDateString([], {
+          hour: '2-digit',
+          minute: '2-digit'
+        });
         $scope.copyTextToClipboard(date, function () {
           $scope.copiedDate = true;
           $timeout(function () {
@@ -730,7 +733,9 @@ var HomeCtrl = function HomeCtrl($rootScope, $scope, $timeout) {
         });
         break;
       case "duplicate":
-        componentManager.sendCustomEvent("duplicate-item", { item: $scope.note });
+        componentManager.sendCustomEvent("duplicate-item", {
+          item: $scope.note
+        });
         break;
       case "copy":
         $scope.copyNoteToClipboard();
