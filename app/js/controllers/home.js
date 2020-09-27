@@ -121,7 +121,9 @@ class HomeCtrl {
 }
 
 function countWords(s) {
-  return s.match(/\b/gm).length / 2;
+  // Count any word characters or ellipses:
+  // https://regex101.com/r/hJ61ft/1
+  return s.match(/([\w'‘’\-]|(\.{3}))+/gm).length;
 }
 
 function downloadText(filename, text) {
