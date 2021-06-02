@@ -1,9 +1,20 @@
-const dayjs = require('dayjs');
-
 class HomeCtrl {
   constructor($rootScope, $scope, $timeout) {
 
-    const defaultDateFormat = "YYYY-MM-DD HH:mm:ss";
+    const dateToISOFormat = (date) => {
+      if (!date) {
+        return;
+      }
+
+      const year = date.getFullYear();
+      const month = (date.getMonth() + 1).toString().padStart(2, '0');
+      const day = date.getDate().toString().padStart(2, '0');
+      const hours = date.getHours().toString().padStart(2, '0');
+      const minutes = date.getMinutes().toString().padStart(2, '0');
+      const seconds = date.getSeconds().toString().padStart(2, '0');
+
+      return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    }
 
     const permissions = [{
       name: "stream-context-item"
@@ -18,8 +29,8 @@ class HomeCtrl {
     const defaultHeight = 56;
 
     $scope.analyzeNote = function (note) {
-      $scope.createdAt = dayjs(note.created_at).format(defaultDateFormat);
-      $scope.updatedAt = dayjs(note.updated_at).format(defaultDateFormat);
+      $scope.createdAt = dateToISOFormat(note.created_at);
+      $scope.updatedAt = dateToISOFormat(note.updated_at);
 
       let text = note.content.text;
       if (!note.content.appData.prefersPlainEditor) {
@@ -57,7 +68,7 @@ class HomeCtrl {
     $scope.buttonPressed = function (action) {
       switch (action) {
         case "date":
-          const date = dayjs().format(defaultDateFormat);
+          const date = dateToISOFormat(new Date());
           $scope.copyTextToClipboard(date, () => {
             $scope.copiedDate = true;
             $timeout(function () {

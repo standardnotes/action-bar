@@ -6,7 +6,6 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2016": "^6.24.1",
-    "dayjs": "^1.10.5",
     "grunt": "^1.2.1",
     "grunt-angular-templates": "^1.2.0",
     "grunt-babel": "^7.0.0",
