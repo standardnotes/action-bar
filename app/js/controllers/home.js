@@ -133,10 +133,9 @@ class HomeCtrl {
 }
 
 function countWords(s) {
-  s = s.replace(/(^\s*)|(\s*$)/gi, ""); //exclude  start and end white-space
-  s = s.replace(/[ ]{2,}/gi, " "); //2 or more space to 1
-  s = s.replace(/\n /, "\n"); // exclude newline with a start spacing
-  return s.split(' ').length;
+  // Count any word characters or ellipses:
+  // https://regex101.com/r/hJ61ft/1
+  return s.match(/([\w'‘’\-]|(\.{3}))+/gm).length;
 }
 
 function downloadText(filename, text) {
